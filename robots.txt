@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://aspurcek.github.io/sitemap.xml
