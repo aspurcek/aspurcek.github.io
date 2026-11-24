@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Clan invitation | Dragon Dogfight</title>
+<meta name="description" content="You are invited to a clan in Dragon Dogfight, the fire-breathing dragon air-combat game for iPhone and iPad.">
+<meta name="robots" content="noindex">
+<meta name="apple-itunes-app" content="app-id=6835550963">
+<meta name="theme-color" content="#1b1022">
+<link rel="icon" type="image/png" href="../img/icon.png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Dragon Dogfight">
+<meta property="og:title" content="Join my clan in Dragon Dogfight">
+<meta property="og:description" content="Fire-breathing dragons and real-time duels. Tap to join the clan.">
+<meta property="og:image" content="https://aspurcek.github.io/dragon-dogfight/img/dogfight.jpg">
+<style>
+  :root { --bg: #1b1022; --bg2: #0f1424; --gold: #f6c34b; --fire: #ff6a2b; --text: #f3eee8; --muted: #b9b0c4; --card: #261a31; }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; min-height: 100vh; background: linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%) fixed; color: var(--text);
+    font: 17px/1.55 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 520px; margin: 0 auto; padding: 48px 16px; text-align: center; }
+  img.icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 10px 40px rgba(255,106,43,.35); }
+  h1 { font-size: 30px; line-height: 1.15; margin: 22px 0 6px; color: var(--gold); text-transform: uppercase; letter-spacing: .5px; }
+  p { color: var(--muted); margin: 0 0 18px; }
+  .code { display: inline-block; margin: 6px 0 22px; padding: 12px 22px; border-radius: 14px; background: var(--card);
+    font: 800 34px/1 ui-monospace, "SF Mono", Menlo, monospace; letter-spacing: 6px; color: var(--gold); }
+  .cta { display: inline-block; background: var(--fire); color: #fff; text-decoration: none; font-weight: 800; letter-spacing: .6px;
+    padding: 15px 30px; border-radius: 999px; box-shadow: 0 6px 24px rgba(255,106,43,.45); }
+  ol { text-align: left; color: var(--text); margin: 26px auto 0; padding-left: 22px; max-width: 380px; }
+  li { margin: 6px 0; }
+  .bad { color: var(--fire); }
+</style>
+</head>
+<body>
+<main>
+  <img class="icon" src="../img/icon.png" alt="Dragon Dogfight icon" width="96" height="96">
+  <h1>Clan invitation</h1>
+  <p id="lead">You are invited to a clan in Dragon Dogfight.</p>
+  <div class="code" id="code" hidden></div>
+  <div><a class="cta" href="https://apps.apple.com/app/id6835550963">Get Dragon Dogfight</a></div>
+  <ol>
+    <li>Install Dragon Dogfight from the App Store (free, iPhone and iPad).</li>
+    <li>Open this link again, or open <b>FRIENDS › CLAN</b> in the game.</li>
+    <li>Under <b>JOIN WITH A CODE</b>, type the code above and tap <b>FIND</b>.</li>
+  </ol>
+</main>
+<script>
+  // The code is only ever shown as text, and only when it is a valid clan code.
+  (function () {
+    var m = /[?&]c=([A-Za-z0-9-]{6,8})/.exec(location.search);
+    var raw = m ? m[1].toUpperCase().replace(/-/g, '') : '';
+    var ok = /^[ABCDEFGHJKMNPQRSTUVWXYZ23456789]{6}$/.test(raw);
+    var el = document.getElementById('code');
+    if (ok) {
+      el.textContent = raw.slice(0, 3) + '-' + raw.slice(3);
+      el.hidden = false;
+    } else {
+      var lead = document.getElementById('lead');
+      lead.textContent = 'This invitation link is not complete. Ask your friend for the clan code.';
+      lead.className = 'bad';
+    }
+  })();
+</script>
+</body>
+</html>

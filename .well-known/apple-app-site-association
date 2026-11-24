@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["PPAAHJK43N.com.dragondogfight.app"],
+        "components": [{ "/": "/dragon-dogfight/clan/*", "comment": "Clan invitations open the game" }]
+      }
+    ]
+  }
+}
